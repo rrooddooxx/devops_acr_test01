@@ -8,7 +8,6 @@ variables:
   IMAGE_NAME: 'app-demo-grupo06'  # Se debe colocar el Nombre de la imagen que será descargada desde ACR
   ACR_NAME: 'acrgrupo06'  # Se debe colocar el Nombre de tu Azure Container Registry (ACR)
   ACR_USERNAME: 'acrgrupo06'  # Se debe colocar el Nombre de usuario del ACR
-  ACR_PASSWORD: 'aRUwu9oczqybEw0CCJlTHPBRE8l8bj6HEEtYqvhIth+ACRCbMKYJ'  # Se debe colocar la Contraseña del ACR
 
 stages:
   - stage: Deploy
@@ -64,7 +63,7 @@ stages:
                 - script: |
                     # Autenticarse en Azure Container Registry utilizando nombre de usuario y contraseña
                     echo "Autenticándose en Azure Container Registry y ejecutando la imagen Docker..."
-                    echo ${ACR_PASSWORD} | sudo docker login ${ACR_NAME}.azurecr.io -u ${ACR_USERNAME} --password-stdin > /dev/null 2>&1
+                    echo ${{ secrets.ACR_PASSWORD }} | sudo docker login ${ACR_NAME}.azurecr.io -u ${ACR_USERNAME} --password-stdin > /dev/null 2>&1
 
                     # Descargar la imagen desde ACR
                     sudo docker pull ${ACR_NAME}.azurecr.io/${ACR_NAME}.azurecr.io/${IMAGE_NAME}:latest
