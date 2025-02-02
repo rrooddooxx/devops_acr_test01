@@ -4,9 +4,9 @@ trigger:
       - main
 
 variables:
-  ACR_NAME: 'acrskravetz'
-  IMAGE_NAME: 'app-demo-skravetz'
-  SERVICE_CONNECTION_NAME: 'acr-cnx-skravetz'
+  ACR_NAME: 'acrgrupo06'
+  IMAGE_NAME: 'app-demo-grupo06'
+  SERVICE_CONNECTION_NAME: 'acr-cnx-grupo6'
 
 jobs:
   - job: 'BuildImageAndPushToACR'
