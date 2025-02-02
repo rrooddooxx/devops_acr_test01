@@ -9,7 +9,7 @@ variables:
   SERVICE_CONNECTION_NAME: 'acr-cnx-skravetz'
 
 jobs:
-  - job: BuildAndPush
+  - job: 'Build Image and Push to ACR'
     pool:
       vmImage: 'ubuntu-latest'
     steps:
